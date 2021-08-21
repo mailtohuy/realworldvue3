@@ -9,25 +9,9 @@
 <script>
 export default {
   name: 'EventCard',
-
-  data() {
-    return {
-      event: {
-        id: 12345,
-        category: 'animal welfare',
-        title: 'Cat adoption day',
-        description: 'Find a new feline friend at this event',
-        location: 'Meow Town',
-        date: 'Aug 21, 2021',
-        time: '13:00',
-        petsAllowed: true,
-        organizer: 'Kat Laydee',
-      }
-    }
-  },
-  // props: {
-  //   msg: String,
-  // },
+  props: {
+    event: Object
+  }
 }
 </script>
 
