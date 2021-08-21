@@ -18,6 +18,7 @@ export default {
 <style scoped>
 .event-card {
   padding: 20px;
+  margin: 10px;
   width: 250px;
   cursor: pointer;
   border: 1px solid #39495c;
