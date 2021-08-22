@@ -1,37 +1,37 @@
 <template>
-  <h1>Events for good</h1>
   <div class="events">
-    <EventCard v-for="event in events" :key="event.id" :event="event"/>
+    <EventCard v-for="event in events" :key="event.id" :event="event" />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
 import EventCard from '@/components/EventCard.vue'
-import axios from 'axios'
+import EventService from '@/services/EventService.js'
+// import axios from 'axios'
 
 export default {
   name: 'EventList',
   components: {
-    EventCard,
+    EventCard
   },
   data() {
     return {
-      events: null,
+      events: null
     }
   },
   created() {
-    axios
-      .get(
-        'https://my-json-server.typicode.com/code-pop/real-world_vue-3/events'
-      )
-      .then((response) => {
-        console.log('events: ', response.data)
+    EventService.getEvents()
+    //   axios.get(
+    //     'https://my-json-server.typicode.com/Code-Pop/Real-World_Vue-3/events'
+    //   )
+      .then(response => {
+        this.events = response.data;
+        console.log('events:', this.events);
       })
-      .catch((error) => {
-        console.log('error in created:', error)
+      .catch(error => {
+        console.log(error)
       })
-  },
+  }
 }
 </script>
 
